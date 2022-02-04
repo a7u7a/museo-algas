@@ -1,6 +1,5 @@
 <template>
   <div>
-    <navBar />
     <div class="pt-16"><banner /></div>
     <about />
     <div class="flex flex-col items-center overflow-auto">

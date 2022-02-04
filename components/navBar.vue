@@ -9,7 +9,7 @@
 export default {
     methods:{
         showCatalog: function(event){
-            console.log("catalog")
+            console.log("catalog", this.$store.getters.getAlgaByPath("carola"))
         }
     }
 };

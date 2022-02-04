@@ -32,10 +32,7 @@ export default {
     };
   },
   mounted: function () {
-    const filtered = algas.filter((alga) => {
-      return alga.tipo == this.tipo;
-    });
-    this.algas = filtered;
+    this.algas = this.$store.getters.getAlgaByType(this.tipo)
   },
 };
 </script>
