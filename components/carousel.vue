@@ -5,8 +5,8 @@
         flex flex-row
         justify-start
         w-screen
-        overflow-auto
         md:justify-center
+        overflow-x-auto
       "
     >
       <algaBtn

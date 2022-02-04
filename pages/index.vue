@@ -2,22 +2,21 @@
   <div>
     <div class="pt-16"><banner /></div>
     <about />
-    <div class="flex flex-col items-center overflow-auto">
+    <div class="flex flex-col items-center overflow-x-hidden">
       <div class="m-12">
         <p class="font-serif font-bold text-2xl">Algas</p>
       </div>
       <div class="flex flex-col space-y-6 md:items-center">
-        <div>
-          <p class="ml-12 font-serif font-bold text-xl md:ml-0">Algas Pardas</p>
-        </div>
+        <p class="ml-12 font-serif font-bold text-xl md:ml-0">Algas Pardas</p>
+
         <carousel tipo="parda" />
-        <div>
-          <p class="ml-12 font-serif font-bold text-xl md:ml-0">Algas Rojas</p>
-        </div>
+
+        <p class="ml-12 font-serif font-bold text-xl md:ml-0">Algas Rojas</p>
+
         <carousel tipo="roja" />
-        <div>
-          <p class="ml-12 font-serif font-bold text-xl md:ml-0">Algas Verdes</p>
-        </div>
+
+        <p class="ml-12 font-serif font-bold text-xl md:ml-0">Algas Verdes</p>
+
         <carousel tipo="verde" />
       </div>
     </div>
