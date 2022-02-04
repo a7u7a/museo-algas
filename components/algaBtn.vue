@@ -1,7 +1,8 @@
 <template>
   <div class="mt-2 mb-2 ml-2 mr-2">
-    <div
+    <NuxtLink 
       class="flex flex-col p-6 w-56 items-center rounded-lg hover:bg-gray-300"
+      :to="to"
     >
       <div>
         <img class="object-contain w-40 h-40" :src="thumbPath" alt="" />
@@ -15,13 +16,13 @@
           {{ nombres }}
         </p>
       </div>
-    </div>
+    </NuxtLink>
   </div>
 </template>
 
 <script>
 export default {
-  props: ["nombresArr", "thumbPath", "especie", "abreviatura"],
+  props: ["nombresArr", "thumbPath", "especie", "abreviatura", "to"],
   data: function () {
     return {
       nombres: null,

@@ -16,6 +16,7 @@
         :especie="alga.especie"
         :thumbPath="alga.thumbPath"
         :abreviatura="alga.abreviatura"
+        :to="alga.path"
       />
     </div>
   </div>
