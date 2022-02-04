@@ -1,19 +1,43 @@
 <template>
-  <div class="flex flex-col m-12 w-48 items-center">
-    <div class="m-6 rounded-lg hover:bg-gray-300">
+  <div class="mt-2 mb-2 ml-2 mr-2">
+    <div
+      class="flex flex-col p-6 w-56 items-center rounded-lg hover:bg-gray-300"
+    >
       <div>
-        <img class="mix-blend-multiply" src="/thumbs/carola.png" alt="" />
+        <img class="object-contain w-40 h-40" :src="thumbPath" alt="" />
       </div>
-      <div>
-        <p class="mt-2 font-serif italic">Callophyllis variegata</p>
-        <p class="mt-2 font-serif">Carola</p>
+      <div class="text-center">
+        <p class="mt-6">
+          <a class="font-serif italic">{{ especie }}</a>
+          <a class="font-serif">{{ abreviatura }}</a>
+        </p>
+        <p class="mt-2 font-serif">
+          {{ nombres }}
+        </p>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  props: ["nombresArr", "thumbPath", "especie", "abreviatura"],
+  data: function () {
+    return {
+      nombres: null,
+    };
+  },
+  mounted: function () {
+    var nombres = "";
+    for (let i = 0; i < this.nombresArr.length; i++) {
+      nombres += this.nombresArr[i];
+      if (i != this.nombresArr.length - 1) {
+        nombres += ", ";
+      }
+    }
+    this.nombres = nombres;
+  },
+};
 </script>
 
 <style lang="scss" scoped>
