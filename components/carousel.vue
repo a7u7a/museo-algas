@@ -12,9 +12,9 @@
       <algaBtn
         v-for="(alga, i) in algas"
         :key="i"
-        :nombresArr="alga.nombres"
-        :especie="alga.especie"
-        :thumbPath="alga.thumbPath"
+        :nombresArr="alga.ficha.nombres"
+        :especie="alga.ficha.especie"
+        :thumb="alga.thumb"
         :abreviatura="alga.abreviatura"
         :to="alga.path"
       />

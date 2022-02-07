@@ -2,12 +2,14 @@
   <div>
     <navBar />
     <Nuxt />
-    <footerCredits />
+    <foot />
   </div>
 </template>
 
 <script>
-export default {};
+import foot from '../components/foot.vue';
+export default {
+  components: { foot },};
 </script>
 
 <style lang="scss" scoped>

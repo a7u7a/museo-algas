@@ -5,7 +5,7 @@
       :to="`/catalogo/${to}`"
     >
       <div>
-        <img class="object-contain w-40 h-40" :src="thumbPath" alt="" />
+        <img class="object-contain w-40 h-40" :src="thumb" alt="" />
       </div>
       <div class="text-center">
         <p class="mt-6">
@@ -22,7 +22,7 @@
 
 <script>
 export default {
-  props: ["nombresArr", "thumbPath", "especie", "abreviatura", "to"],
+  props: ["nombresArr", "thumb", "especie", "abreviatura", "to"],
   data: function () {
     return {
       nombres: null,
