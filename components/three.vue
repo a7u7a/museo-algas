@@ -18,25 +18,26 @@ export default {
 
     const width = 500;
     const height = 500;
+    const canvas = document.querySelector("#webgl");
+    const frustumSize = 5;
+    var aspect = canvas.parentElement.offsetWidth / height;
 
     const a = 30;
     const camera = new THREE.OrthographicCamera(
-      width / -a,
-      width / a,
-      height / a,
-      height / -a,
-      1,
-      1000
+      (frustumSize * aspect) / -2,
+      (frustumSize * aspect) / 2,
+      (frustumSize * aspect) / 2,
+      (frustumSize * aspect) / -2,
+      0.1,
+      100
     );
     camera.position.set(1.5, 0.8, 50);
     camera.lookAt(new THREE.Vector3(0, 0, 0));
 
     const scene = new THREE.Scene();
-    scene.background = new THREE.Color(0x95bbbf);
+    //scene.background = new THREE.Color(0x95bbbf);
     const gridHelper = new THREE.GridHelper(10, 10);
-    scene.add(gridHelper);
-
-    const canvas = document.querySelector("#webgl");
+    //scene.add(gridHelper);
 
     const renderer = new THREE.WebGLRenderer({
       canvas: canvas,
@@ -44,7 +45,7 @@ export default {
       alpha: true,
       preserveDrawingBuffer: true,
     });
-    renderer.setSize(width, height);
+    renderer.setSize(canvas.parentElement.offsetWidth, height);
     renderer.setPixelRatio(devicePixelRatio);
 
     const controls = new OrbitControls(camera, renderer.domElement);
@@ -53,11 +54,29 @@ export default {
     controls.screenSpacePanning = true;
     controls.addEventListener("change", () => renderer.render(scene, camera));
 
-    
     new ResizeObserver(() => {
-      console.log("test", canvas.parentElement.offsetWidth);
+      var aspect = canvas.parentElement.offsetWidth / height;
+      console.log("aspect", aspect);
+      camera.left = (frustumSize * aspect) / -2;
+      camera.right = (frustumSize * aspect) / 2;
+      camera.top = frustumSize / 2;
+      camera.bottom = -frustumSize / 2;
+
+      camera.updateProjectionMatrix();
       renderer.setSize(canvas.parentElement.offsetWidth, height);
+      renderer.render(scene, camera);
     }).observe(canvas.parentElement);
+
+    const directionalLight = new THREE.DirectionalLight(0xffffff, 2);
+    directionalLight.position.set(1, 1, 1);
+    scene.add(directionalLight);
+
+    const directionalLight2 = new THREE.DirectionalLight(0xffffff, 2);
+    directionalLight2.position.set(-1, 1, -1);
+    scene.add(directionalLight2);
+
+    const light = new THREE.AmbientLight(0x404040, 2); // soft white light
+    scene.add(light);
 
     const loader = new GLTFLoader();
     const url = this.model;
@@ -72,6 +91,7 @@ export default {
         //parent.add(object);
         object.position.copy(pos);
         scene.add(object);
+        renderer.render(scene, camera);
       },
       (xhr) => {
         console.log((xhr.loaded / xhr.total) * 100 + "% loaded");
