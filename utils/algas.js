@@ -62,7 +62,7 @@ module.exports =
             thumbPath: "/thumbs/huiro_flotador.png",
             tipo: "parda",
             abreviatura: "",
-            path: "huiro-floatador"
+            path: "huiro-flotador"
         },
         {
             nombres: ["Cochayuyo", "Coyofe"],
