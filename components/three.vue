@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="mt-8 text-lg">Representación volumétrica</div>
-    <canvas id="webgl" class="w-full h-full"> </canvas>
+    <canvas id="webgl" class="mt-4 w-full h-full"> </canvas>
   </div>
 </template>
 
@@ -11,15 +11,12 @@ import { OrbitControls } from "three/examples//jsm/controls/OrbitControls.js";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 
 export default {
-  props: { model: { type: String, required: true } },
+  props: { model: { type: Object, required: true } },
 
   mounted: function () {
-    console.log("model", this.model);
-
-    const width = 500;
     const height = 500;
     const canvas = document.querySelector("#webgl");
-    const frustumSize = 5;
+    const frustumSize = 2;
     var aspect = canvas.parentElement.offsetWidth / height;
 
     const a = 30;
@@ -31,13 +28,9 @@ export default {
       0.1,
       100
     );
-    camera.position.set(1.5, 0.8, 50);
-    camera.lookAt(new THREE.Vector3(0, 0, 0));
+    camera.position.set(1.5, 0.8, 5);
 
     const scene = new THREE.Scene();
-    //scene.background = new THREE.Color(0x95bbbf);
-    const gridHelper = new THREE.GridHelper(10, 10);
-    //scene.add(gridHelper);
 
     const renderer = new THREE.WebGLRenderer({
       canvas: canvas,
@@ -56,12 +49,10 @@ export default {
 
     new ResizeObserver(() => {
       var aspect = canvas.parentElement.offsetWidth / height;
-      console.log("aspect", aspect);
       camera.left = (frustumSize * aspect) / -2;
       camera.right = (frustumSize * aspect) / 2;
       camera.top = frustumSize / 2;
       camera.bottom = -frustumSize / 2;
-
       camera.updateProjectionMatrix();
       renderer.setSize(canvas.parentElement.offsetWidth, height);
       renderer.render(scene, camera);
@@ -79,9 +70,13 @@ export default {
     scene.add(light);
 
     const loader = new GLTFLoader();
-    const url = this.model;
-    const pos = new THREE.Vector3();
-    const s = 1;
+    const url = this.model.path;
+    const pos = new THREE.Vector3(
+      this.model.xOffset,
+      this.model.yOffset,
+      this.model.zOffset
+    );
+    const s = this.model.scale;
     loader.load(
       url,
       (gltf) => {

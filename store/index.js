@@ -80,7 +80,13 @@ export const state = () => ({
         },
         {
             id: 7,
-            model: "/models/carola/carola.glb",
+            model: {
+                path: "/models/huiro-negro/huiro-negro.glb",
+                scale: 0.08,
+                xOffset: 0.5,
+                yOffset: -0.9,
+                zOffset: 0
+            },
             thumb: "/thumbs/huiro_negro.png",
             path: "huiro-negro",
             ficha: {
