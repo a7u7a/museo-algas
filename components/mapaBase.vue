@@ -1,13 +1,12 @@
 <template>
   <div>
-      <div id="map" class="w-full h-full"></div>
+      <div id="map" class="w-full h-96"></div>
   </div>
 </template>
 
 <script>
 import mapboxgl from "mapbox-gl";
-//require('mapbox-gl/dist/mapbox-gl.css')
-//import 'mapbox-gl/dist/mapbox-gl.css';
+import 'mapbox-gl/dist/mapbox-gl.css';
 export default {
   data() {
     return {
@@ -187,8 +186,11 @@ export default {
 </script>
 
 <style scoped>
-@import url("https://api.mapbox.com/mapbox-gl-js/v0.44.1/mapbox-gl.css");
+
+
 /*
+@import url("https://api.mapbox.com/mapbox-gl-js/v0.44.1/mapbox-gl.css");
+  @import url("https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.css");
 <style scoped src="mapbox-gl/dist/mapbox-gl.css">
 @import "mapbox-gl/dist/mapbox-gl.css";
 */

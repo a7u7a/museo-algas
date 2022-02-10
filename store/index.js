@@ -8,28 +8,40 @@ export const getters = {
     }
 }
 
+/**
+ * herbos is GEOJSON
+ */
 export const state = () => ({
     algas: [
         {
             id: 1,
-            herbos: [
-                {
-                    fecha: "10/10/21",
-                    img: "/herbos/carola/1.png",
-                    coords: {
-                        lat: -33.963561,
-                        lon: -71.882645
-                    }
-                },
-                {
-                    fecha: "3/5/99",
-                    img: "/herbos/carola/2.png",
-                    coords: {
-                        lat: -33.965875,
-                        lon: -71.883890
-                    }
-                }
-            ],
+            herbos: {
+                type: "FeatureCollection",
+                features: [
+                  {
+                    type: "Feature",
+                    properties: {
+                      description:
+                        "<strong>Fecha de recolección:</strong><p>10/3/5</p> <img src='/herbos/carola/1.png'/>",
+                    },
+                    geometry: {
+                      type: "Point",
+                      coordinates: [-71.882645, -33.963561],
+                    },
+                  },
+                  {
+                    type: "Feature",
+                    properties: {
+                      description:
+                      "<strong>Fecha de recolección:</strong><p>11/1/8</p> <img src='/herbos/carola/2.png'/>",
+                    },
+                    geometry: {
+                      type: "Point",
+                      coordinates: [-71.88389, -33.965875],
+                    },
+                  },
+                ],
+              },
             model: {
                 path: "/models/carola/carola.glb",
                 scale: 1,
