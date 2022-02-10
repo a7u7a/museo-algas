@@ -15,7 +15,7 @@
         :nombresArr="alga.ficha.nombres"
         :especie="alga.ficha.especie"
         :thumb="alga.thumb"
-        :abreviatura="alga.abreviatura"
+        :abreviatura="alga.ficha.abreviatura"
         :to="alga.path"
       />
     </div>

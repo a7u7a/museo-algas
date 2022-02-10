@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="font-serif">
     <div class="mt-8 text-lg">
       {{ tabla.titulo }}
     </div>

@@ -12,6 +12,24 @@ export const state = () => ({
     algas: [
         {
             id: 1,
+            herbos: [
+                {
+                    fecha: "10/10/21",
+                    img: "/herbos/carola/1.png",
+                    coords: {
+                        lat: -33.963561,
+                        lon: -71.882645
+                    }
+                },
+                {
+                    fecha: "3/5/99",
+                    img: "/herbos/carola/2.png",
+                    coords: {
+                        lat: -33.965875,
+                        lon: -71.883890
+                    }
+                }
+            ],
             model: {
                 path: "/models/carola/carola.glb",
                 scale: 1,

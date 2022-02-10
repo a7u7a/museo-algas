@@ -1,7 +1,14 @@
 <template>
-  <div>
+  <div class="font-serif">
     <div class="mt-8 text-lg">Representación volumétrica</div>
-    <canvas id="webgl" class="mt-4 w-full h-full"> </canvas>
+    <div>
+      <div class="absolute flex flex-row w-1/4 h-1/4 items-center justify-center">
+        
+          <p class="text-xl">hello</p>
+        
+      </div>
+      <canvas id="webgl" class="mt-4 w-full h-full"> </canvas>
+    </div>
   </div>
 </template>
 

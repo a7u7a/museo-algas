@@ -1,5 +1,8 @@
 module.exports = {
   purge: [],
+  // corePlugins: {
+  //   preflight: false,
+  // },
   darkMode: false, // or 'media' or 'class'
   theme: {
     screens: { 'md': "1200px" },

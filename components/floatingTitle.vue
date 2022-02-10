@@ -12,16 +12,20 @@
       bg-mdla-bg
       w-full
       border-b border-gray-400
+      font-serif
     "
     :class="{ 'opacity-100 md:opacity-0': showSideHeader }"
   >
-    <div class="text-xl">{{ especie }}</div>
+    <div class="text-xl">
+      <a class="italic"> {{ especie }} </a>
+      <a>{{ abreviatura }}</a>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
-    props:["especie", "showSideHeader"]
+  props: ["especie", "showSideHeader", "abreviatura"],
 };
 </script>
 
