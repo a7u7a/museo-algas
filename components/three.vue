@@ -38,7 +38,7 @@ export default {
     camera.position.set(1.5, 0.8, 5);
 
     const scene = new THREE.Scene();
-    scene.background = new THREE.Color(0xA7B5CA)
+    scene.background = new THREE.Color(0xE0E7F1)
     
 
     const renderer = new THREE.WebGLRenderer({

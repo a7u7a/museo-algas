@@ -7,16 +7,16 @@
       :abreviatura="alga.ficha.abreviatura"
     />
 
-    <div class="flex flex-row pt-24">
-      <!-- side sticky title -->
-      <sideTitle
+<!-- side sticky title -->
+      <sideTitle class="pt-24"
         :especie="alga.ficha.especie"
         :showSideHeader="showSideHeader"
         :abreviatura="alga.ficha.abreviatura"
       />
 
+    <div class="flex flex-row justify-center pt-24">
       <!-- main content -->
-      <div class="flex flex-col w-screen sm:w-2/4 md:max-w-4xl font-serif">
+      <div class="flex flex-col w-screen sm:w-3/5 md:max-w-4xl font-serif">
         <div class="pl-6 md:pl-0 pr-6">
           <!-- main title -->
           <mainTitle
@@ -27,11 +27,11 @@
           <three :model="alga.model" id="1" />
 
           <!-- contenido alga -->
-          <div class="text-xl font-bold mt-8" id="1">Características</div>
+          <div class="text-lg font-bold mt-8" id="1">Características</div>
 
           <classTable class="float-right m-4 pl-8 pr-8 pt-6 pb-6 border" :tabla="alga.ficha.tabla" />
 
-          <div class="mt-8 text-justify text-base md:text-left">
+          <div class="mt-8 text-justify text-base">
             <div class="mb-4">
               <a class="font-bold">Nombre común:</a>
               <a>{{ nombres }}</a>

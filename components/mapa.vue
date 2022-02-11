@@ -1,6 +1,6 @@
 <template>
   <div class="text-base">
-      <div class="text-xl font-bold mt-12 mb-6" id="2">Colección</div>
+      <div class="text-lg font-bold mt-12 mb-6" id="2">Colección</div>
       <div class="mb-6">A continuación se muestran los lugares donde fueron recolectados los especímenes herborizados de Callophyllis variegata con los que cuenta nuestro museo.</div>
     <imgModal2 ref="foo" />
     <div id="map" class="w-full h-96 mb-24"></div>

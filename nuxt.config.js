@@ -43,7 +43,8 @@ export default {
   googleFonts: {
     //display: "swap",
     families: {
-      'Libre+Baskerville': true
+      'Libre+Baskerville': true,
+      'Work+Sans': true
     }
   },
 
