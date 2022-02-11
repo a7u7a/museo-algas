@@ -18,30 +18,34 @@ export const state = () => ({
             herbos: {
                 type: "FeatureCollection",
                 features: [
-                  {
-                    type: "Feature",
-                    properties: {
-                      description:
-                        "<strong>Fecha de recolección:</strong><p>10/3/5</p> <img src='/herbos/carola/1.png'/>",
+                    {
+                        type: "Feature",
+                        properties: {
+                            date: "10 de Noviembre 1999",
+                            img: "/herbos/carola/1.png",
+                            description:
+                            "<strong>Fecha de recolección:</strong><p>10 de Noviembre 1999</p> <img src=/herbos/carola/1.png/>",
+                        },
+                        geometry: {
+                            type: "Point",
+                            coordinates: [-71.882645, -33.963561],
+                        },
                     },
-                    geometry: {
-                      type: "Point",
-                      coordinates: [-71.882645, -33.963561],
+                    {
+                        type: "Feature",
+                        properties: {
+                            date: "10 de Noviembre 1999",
+                            img: "/herbos/carola/2.png",
+                            description:
+                                "<strong>Fecha de recolección:</strong><p>10 de Noviembre 1999</p> <img src=/herbos/carola/1.png/>",
+                        },
+                        geometry: {
+                            type: "Point",
+                            coordinates: [-71.88389, -33.965875],
+                        },
                     },
-                  },
-                  {
-                    type: "Feature",
-                    properties: {
-                      description:
-                      "<strong>Fecha de recolección:</strong><p>11/1/8</p> <img src='/herbos/carola/2.png'/>",
-                    },
-                    geometry: {
-                      type: "Point",
-                      coordinates: [-71.88389, -33.965875],
-                    },
-                  },
                 ],
-              },
+            },
             model: {
                 path: "/models/carola/carola.glb",
                 scale: 1,

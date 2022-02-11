@@ -1,6 +1,6 @@
 <template>
   <div class="font-serif">
-    <div class="mt-8 text-lg">Representación volumétrica</div>
+    <!-- <div class="mt-8 text-lg">Representación volumétrica</div> -->
     <div>
       <div class="absolute flex flex-row w-1/4 h-1/4 items-center justify-center">
         
@@ -38,6 +38,8 @@ export default {
     camera.position.set(1.5, 0.8, 5);
 
     const scene = new THREE.Scene();
+    scene.background = new THREE.Color(0xA7B5CA)
+    
 
     const renderer = new THREE.WebGLRenderer({
       canvas: canvas,

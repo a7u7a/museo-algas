@@ -24,6 +24,8 @@
             :abreviatura="alga.ficha.abreviatura"
           />
 
+          <three :model="alga.model" id="2" />
+
           <!-- contenido alga -->
           <div class="text-xl font-bold mt-8" id="1">Características</div>
           <classTable :tabla="alga.ficha.tabla" />
@@ -39,7 +41,6 @@
             </div>
           </div>
 
-          <three :model="alga.model" id="2" />
           <mapa id="3" :herbos="alga.herbos" />
         </div>
       </div>

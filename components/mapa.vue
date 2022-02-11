@@ -1,5 +1,8 @@
 <template>
   <div>
+      <div class="text-xl font-bold mt-8" id="2">Herborizaciones</div>
+      <div>Puntos de extracción</div>
+    <imgModal2 ref="foo" />
     <div id="map" class="w-full h-96 mb-6"></div>
   </div>
 </template>
@@ -7,6 +10,7 @@
 <script>
 import mapboxgl from "mapbox-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
+
 export default {
   props: ["herbos"],
   data() {
@@ -18,6 +22,12 @@ export default {
     };
   },
   mounted() {
+document.addEventListener('keydown', (event)=>{
+	if(event.key === "Escape"){
+		this.$refs.foo.hide();
+	}
+});
+
     this.createMap();
     this.mapBounds();
   },
@@ -27,6 +37,7 @@ export default {
       console.log("this.herbos", this.herbos.features);
       var lonArr = [];
       var latArr = [];
+      const m = 0.01; // margin
       for (let i = 0; i < this.herbos.features.length; i++) {
         const element = this.herbos.features[i].geometry.coordinates;
         if (element) {
@@ -34,25 +45,27 @@ export default {
           latArr.push(element[1]);
         }
       }
-
-      const m = 0.01; // margin
       const bottomLeft = [Math.min(...lonArr) - m, Math.min(...latArr) - m]; // min lon, min lat
       const topRight = [Math.max(...lonArr) + m, Math.max(...latArr) + m]; // max lon, max lat
       return [bottomLeft, topRight];
     },
     createMap() {
+
+
       mapboxgl.accessToken = this.access_token;
       this.map = new mapboxgl.Map({
         container: "map",
+        width: "100vw", //or px
+        height: "100vh",
         style: this.mapStyle,
         bounds: this.mapBounds(),
       });
       this.map.on("load", () => {
         this.map.addSource("places", {
           type: "geojson",
-          data: this.herbos
+          data: this.herbos,
         });
-        // Add a layer showing the places.
+
         this.map.addLayer({
           id: "places",
           type: "circle",
@@ -65,34 +78,37 @@ export default {
           },
         });
 
-        // Create a popup, but don't add it to the map yet.
         const popup = new mapboxgl.Popup({
           closeButton: false,
           closeOnClick: false,
         });
 
-        /* Go to specific alga (not implemented yet) */
-        // this.map.on("click", "places", (e) => {
-        //     window.location="#1"
-        // });
+        this.map.on("click", "places", (e) => {
+          // call show modal
+          const img = e.features[0].properties.img;
+          const date = e.features[0].properties.date;
+          this.$refs.foo.show(img, date);
+        });
+
+        function myFunction(x) {
+          if (x.matches) {
+            // If media query matches
+            document.body.style.backgroundColor = "yellow";
+          } else {
+            document.body.style.backgroundColor = "pink";
+          }
+        }
 
         this.map.on("mouseenter", "places", (e) => {
-          // Change the cursor style as a UI indicator.
           this.map.getCanvas().style.cursor = "pointer";
-
-          // Copy coordinates array.
           const coordinates = e.features[0].geometry.coordinates.slice();
-          const description = e.features[0].properties.description;
+          const date = e.features[0].properties.date;
+          const img = e.features[0].properties.img;
+          const description = `<strong>Fecha de recolección:</strong><p>${date}</p> <img src="${img}" style="height:15vh;"/>`;
 
-          // Ensure that if the map is zoomed out such that multiple
-          // copies of the feature are visible, the popup appears
-          // over the copy being pointed to.
           while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
             coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
           }
-
-          // Populate the popup and set its coordinates
-          // based on the feature found.
           popup.setLngLat(coordinates).setHTML(description).addTo(this.map);
         });
 
@@ -101,50 +117,6 @@ export default {
           popup.remove();
         });
       });
-
-      //   this.map.on("load", () => {
-      //     // Add an image to use as a custom marker
-      //     this.map.loadImage(
-      //       "https://docs.mapbox.com/mapbox-gl-js/assets/custom_marker.png",
-      //       (error, image) => {
-      //         if (error) throw error;
-      //         this.map.addImage("custom-marker", image);
-      //         this.map.addSource("points", {
-      //           type: "geojson",
-      //           data: {
-      //             type: "FeatureCollection",
-      //             features: [
-      //               {
-      //                 type: "Feature",
-      //                 geometry: {
-      //                   type: "Point",
-      //                   coordinates: [-70.637602, -33.465361],
-      //                 },
-      //                 properties: {
-      //                   title: "Mapbox DC",
-      //                 },
-      //               },
-      //             ],
-      //           },
-      //         });
-
-      //         // Add a symbol layer
-      //         this.map.addLayer({
-      //           id: "points",
-      //           type: "symbol",
-      //           source: "points",
-      //           layout: {
-      //             "icon-image": "custom-marker",
-      //             // get the title name from the source's "title" property
-      //             "text-field": ["get", "title"],
-      //             "text-font": ["Open Sans Semibold", "Arial Unicode MS Bold"],
-      //             "text-offset": [0, 1.25],
-      //             "text-anchor": "top",
-      //           },
-      //         });
-      //       }
-      //     );
-      //   });
     },
   },
 };
