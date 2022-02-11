@@ -27,11 +27,11 @@
           <three :model="alga.model" id="1" />
 
           <!-- contenido alga -->
-          <div class="text-lg font-bold mt-8" id="1">Características</div>
+          <div class="text-lg font-bold mt-8 mb-4" id="1">Características</div>
 
-          <classTable class="float-right m-4 pl-8 pr-8 pt-6 pb-6 border" :tabla="alga.ficha.tabla" />
+          <classTable  :tabla="alga.ficha.tabla" />
 
-          <div class="mt-8 text-justify text-base">
+          <div class="text-justify text-base">
             <div class="mb-4">
               <a class="font-bold">Nombre común:</a>
               <a>{{ nombres }}</a>

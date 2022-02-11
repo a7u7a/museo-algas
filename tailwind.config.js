@@ -14,6 +14,9 @@ module.exports = {
     },
 
     extend: {
+      fontSize: {
+        'md': ['1.2rem', '1.6rem'],
+      },
       screens: { 'mds': "1200px" },
       colors: { 'mdla-bg': '#fafafa' },
       fontFamily: {
