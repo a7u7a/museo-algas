@@ -2,10 +2,10 @@
   <div class="font-serif">
     <!-- <div class="mt-8 text-lg">Representación volumétrica</div> -->
     <div>
-      <div class="absolute flex flex-row w-1/4 h-1/4 items-center justify-center">
-        
-          <!-- <p class="text-xl">hello</p> -->
-        
+      <div
+        class="absolute flex flex-row w-1/4 h-1/4 items-center justify-center"
+      >
+        <!-- <p class="text-xl">hello</p> -->
       </div>
       <canvas id="webgl" class="mt-4 w-full h-full"> </canvas>
     </div>
@@ -19,64 +19,112 @@ import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 
 export default {
   props: { model: { type: Object, required: true } },
+  data() {
+    return {
+      object: null,
+      renderer: null,
+      scene: null,
+      camera: null,
+      controls: null
+    };
+  },
+  methods: {
+    animate() {
+      requestAnimationFrame(this.animate);
 
+      this.object.rotation.y += 0.01;
+
+      this.renderer.render(this.scene, this.camera);
+    },
+    fitCameraToObject() {
+      const boundingBox = new THREE.Box3();
+
+      // get bounding box of object - this will be used to setup controls and camera
+      boundingBox.setFromObject(this.object);
+
+      const center = new THREE.Vector3();
+      boundingBox.getCenter(center);
+
+      const size = new THREE.Vector3();
+      boundingBox.getSize(size);
+
+      // get the max side of the bounding box (fits to width OR height as needed )
+      const maxDim = Math.max(size.x, size.y, size.z);
+      const fov = this.camera.fov * (Math.PI / 180);
+      let cameraZ = Math.abs((maxDim / 4) * Math.tan(fov * 2));
+
+      // cameraZ *= offset; // zoom out a little so that objects don't fill the screen
+
+      //camera.position.z = cameraZ;
+
+      const minZ = boundingBox.min.z;
+      const cameraToFarEdge = minZ < 0 ? -minZ + cameraZ : cameraZ - minZ;
+      // camera.far = cameraToFarEdge * 3;
+
+      if (this.controls) {
+        // set camera to rotate around center of loaded object
+        this.controls.target = center;
+
+        // prevent camera from zooming out far enough to create far plane cutoff
+        this.controls.maxDistance = cameraToFarEdge * 6;
+
+        // this.controls.saveState();
+      } else {
+        this.camera.lookAt(center);
+      }
+    },
+  },
   mounted: function () {
     const height = 500;
     const canvas = document.querySelector("#webgl");
     const frustumSize = 2;
     var aspect = canvas.parentElement.offsetWidth / height;
 
-    const a = 30;
-    const camera = new THREE.OrthographicCamera(
-      (frustumSize * aspect) / -2,
-      (frustumSize * aspect) / 2,
-      (frustumSize * aspect) / 2,
-      (frustumSize * aspect) / -2,
-      0.1,
-      100
-    );
-    camera.position.set(1.5, 0.8, 5);
+    this.scene = new THREE.Scene();
+    this.scene.background = new THREE.Color(0xe0e7f1);
 
-    const scene = new THREE.Scene();
-    scene.background = new THREE.Color(0xE0E7F1)
-    
+    // const size = 1;
+    // const divisions = 10;
+    // const gridHelper = new THREE.GridHelper(size, divisions);
+    // this.scene.add(gridHelper);
+    var aspect = canvas.parentElement.offsetWidth / height;
+    this.camera = new THREE.PerspectiveCamera(35, aspect, 1, 200);
+    this.camera.position.set(10, 1, 0);
+    this.camera.lookAt(0, 0, 0);
+    this.scene.add(this.camera);
 
-    const renderer = new THREE.WebGLRenderer({
+    this.renderer = new THREE.WebGLRenderer({
       canvas: canvas,
       antialias: true,
       alpha: true,
       preserveDrawingBuffer: true,
     });
-    renderer.setSize(canvas.parentElement.offsetWidth, height);
-    renderer.setPixelRatio(devicePixelRatio);
+    this.renderer.setSize(canvas.parentElement.offsetWidth, height);
+    this.renderer.setPixelRatio(devicePixelRatio);
 
-    const controls = new OrbitControls(camera, renderer.domElement);
-    controls.autoRotate = false;
-    controls.autoRotateSpeed = -10;
-    controls.screenSpacePanning = true;
-    controls.addEventListener("change", () => renderer.render(scene, camera));
+    this.controls = new OrbitControls(this.camera, this.renderer.domElement);
+    this.controls.autoRotate = false;
+    this.controls.autoRotateSpeed = -10;
+    this.controls.screenSpacePanning = true;
+    this.controls.addEventListener("change", () => {
+      this.renderer.render(this.scene, this.camera);
+    });
 
     new ResizeObserver(() => {
-      var aspect = canvas.parentElement.offsetWidth / height;
-      camera.left = (frustumSize * aspect) / -2;
-      camera.right = (frustumSize * aspect) / 2;
-      camera.top = frustumSize / 2;
-      camera.bottom = -frustumSize / 2;
-      camera.updateProjectionMatrix();
-      renderer.setSize(canvas.parentElement.offsetWidth, height);
-      renderer.render(scene, camera);
+      this.renderer.setSize(canvas.parentElement.offsetWidth, height);
+      this.renderer.render(this.scene, this.camera);
     }).observe(canvas.parentElement);
 
     const directionalLight = new THREE.DirectionalLight(0xffffff, 2);
     directionalLight.position.set(1, 1, 1);
-    scene.add(directionalLight);
+    this.scene.add(directionalLight);
 
     const directionalLight2 = new THREE.DirectionalLight(0xffffff, 2);
     directionalLight2.position.set(-1, 1, -1);
-    scene.add(directionalLight2);
+    this.scene.add(directionalLight2);
 
     const light = new THREE.AmbientLight(0x404040, 2); // soft white light
-    scene.add(light);
+    this.scene.add(light);
 
     const loader = new GLTFLoader();
     const url = this.model.path;
@@ -89,13 +137,11 @@ export default {
     loader.load(
       url,
       (gltf) => {
-        const object = gltf.scene;
-        object.scale.set(s, s, s);
-        //const parent = new THREE.Object3D();
-        //parent.add(object);
-        object.position.copy(pos);
-        scene.add(object);
-        renderer.render(scene, camera);
+        this.object = gltf.scene;
+        this.object.scale.set(s, s, s);
+        this.scene.add(this.object);
+        this.fitCameraToObject();
+        this.animate();
       },
       (xhr) => {
         console.log((xhr.loaded / xhr.total) * 100 + "% loaded");
@@ -105,7 +151,6 @@ export default {
       }
     );
   },
-  methods: {},
 };
 </script>
 
