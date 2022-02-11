@@ -1,11 +1,11 @@
 <template>
-  <div class="flex flex-col w-full mt-12 items-center space-y-12">
+  <div class="flex flex-col w-full mt-24 items-center space-y-24">
     <div class="">
       <p class="font-serif font-bold text-2xl">Bienvenidos</p>
     </div>
     <div class="w-screen md:w-1/2">
     <div class="pl-8 md:pl-0 pr-8">
-      <p class="font-serif">
+      <p class="font-serif text-center">
         Morbi consectetur auctor orci, at ullamcorper dui pretium ac. Mauris
         ligula velit, feugiat vel lorem eu, pulvinar posuere massa. Quisque eu
         egestas mauris. Aliquam imperdiet sapien massa, sit amet sollicitudin

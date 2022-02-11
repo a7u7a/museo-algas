@@ -5,7 +5,7 @@
         flex flex-row
         justify-start
         w-screen
-        md:justify-center
+        mds:justify-center
         overflow-x-auto
       "
     >

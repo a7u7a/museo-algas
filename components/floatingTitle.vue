@@ -16,7 +16,7 @@
     "
     :class="{ 'opacity-100 md:opacity-0': showSideHeader }"
   >
-    <div class="text-xl">
+    <div class="text-lg">
       <a class="italic"> {{ especie }} </a>
       <a>{{ abreviatura }}</a>
     </div>
