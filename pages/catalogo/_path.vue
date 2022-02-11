@@ -24,15 +24,16 @@
             :abreviatura="alga.ficha.abreviatura"
           />
 
-          <three :model="alga.model" id="2" />
+          <three :model="alga.model" id="1" />
 
           <!-- contenido alga -->
           <div class="text-xl font-bold mt-8" id="1">Características</div>
-          <classTable :tabla="alga.ficha.tabla" />
 
-          <div class="mt-8 text-justify md:text-left">
+          <classTable class="float-right m-4 pl-8 pr-8 pt-6 pb-6 border" :tabla="alga.ficha.tabla" />
+
+          <div class="mt-8 text-justify text-base md:text-left">
             <div class="mb-4">
-              <a class="font-bold">Nombre comun:</a>
+              <a class="font-bold">Nombre común:</a>
               <a>{{ nombres }}</a>
             </div>
             <div class="mb-4" v-for="(info, i) in alga.ficha.info" :key="i">
@@ -40,8 +41,7 @@
               <a>{{ info.data }}</a>
             </div>
           </div>
-
-          <mapa id="3" :herbos="alga.herbos" />
+          <mapa id="2" :herbos="alga.herbos" />
         </div>
       </div>
     </div>

@@ -44,6 +44,7 @@ export default {
     //display: "swap",
     families: {
       'Libre+Baskerville': true
+      // 'Cormorant+Garamond': true
     }
   },
 

@@ -4,7 +4,7 @@
     <div>
       <div class="absolute flex flex-row w-1/4 h-1/4 items-center justify-center">
         
-          <p class="text-xl">hello</p>
+          <!-- <p class="text-xl">hello</p> -->
         
       </div>
       <canvas id="webgl" class="mt-4 w-full h-full"> </canvas>

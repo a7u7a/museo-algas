@@ -1,6 +1,6 @@
 <template>
-  <div class="font-serif">
-    <div class="mt-8 text-lg">
+  <div class="text-base font-serif">
+    <div class="mb-4 text-lg">
       {{ tabla.titulo }}
     </div>
     <div class="flex flex-row">

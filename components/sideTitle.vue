@@ -10,9 +10,7 @@
         class="flex flex-col mt-6 space-y-2 text-right underline text-gray-400"
       >
         <a href="#1">Características</a>
-        <a href="#2">Representación</a>
-        <a href="#3">Herborización</a>
-        <a href="#3">Mapa</a>
+        <a href="#2">Colección</a>
       </div>
     </div>
   </div>
