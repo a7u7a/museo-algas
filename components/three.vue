@@ -1,8 +1,17 @@
 <template>
-  <div class="font-serif">
-    <div>
-      <canvas id="webgl" class="mt-4 w-full h-full"> </canvas>
+  <div>
+    <div class="block" :class="{ hidden: hideLoader }">
+      <div class="absolute flex justify-center w-3/5 mt-60">
+        <div class="font-sans bg-gray-300 rounded pl-2 pr-2">
+          {{ loading }}
+        </div>
+      </div>
     </div>
+    <!-- <section id="loading-screen">
+        <div id="loader"></div>
+      </section> -->
+
+    <canvas id="webgl" class="mt-4 w-full h-full"> </canvas>
   </div>
 </template>
 
@@ -21,9 +30,13 @@ export default {
       camera: null,
       controls: null,
       loading: "Cargando modelo..",
+      hideLoader: false,
     };
   },
   methods: {
+    onTransitionEnd(event) {
+      event.target.remove();
+    },
     animate() {
       requestAnimationFrame(this.animate);
       this.object.rotation.y += 0.005;
@@ -89,7 +102,7 @@ export default {
     });
 
     new ResizeObserver(() => {
-      this.camera.aspect = canvas.parentElement.offsetWidth / height
+      this.camera.aspect = canvas.parentElement.offsetWidth / height;
       this.camera.updateProjectionMatrix();
       this.renderer.setSize(canvas.parentElement.offsetWidth, height);
       this.renderer.render(this.scene, this.camera);
@@ -106,7 +119,17 @@ export default {
     const light = new THREE.AmbientLight(0x404040, 2); // soft white light
     this.scene.add(light);
 
-    const loader = new GLTFLoader();
+    // loader
+
+    const loadingManager = new THREE.LoadingManager(() => {
+      const loadingScreen = document.getElementById("loading-screen");
+      loadingScreen.classList.add("fade-out");
+
+      // optional: remove loader from DOM via event listener
+      loadingScreen.addEventListener("transitionend", this.onTransitionEnd);
+    });
+
+    const loader = new GLTFLoader(loadingManager);
     const url = this.model.path;
     const pos = new THREE.Vector3(
       this.model.xOffset,
@@ -123,11 +146,12 @@ export default {
         this.fitCameraToObject();
         this.animate();
         this.loading = "Listo";
+        this.hideLoader = true;
       },
       (xhr) => {
         this.loading = "Cargando:" + (xhr.loaded / xhr.total) * 100 + "%";
         if (xhr.total >= 99) {
-          this.loading = "Preparando";
+          this.loading = "Preparando modelo";
         }
       },
       (error) => {
@@ -138,5 +162,85 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
+#loading-screen {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000000;
+  opacity: 1;
+  transition: 1s opacity;
+}
+
+#loading-screen.fade-out {
+  opacity: 0;
+}
+
+#loader {
+  display: block;
+  position: relative;
+  left: 50%;
+  top: 50%;
+  width: 150px;
+  height: 150px;
+  margin: -75px 0 0 -75px;
+  border-radius: 50%;
+  border: 3px solid transparent;
+  border-top-color: #9370db;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+}
+#loader:before {
+  content: "";
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  right: 5px;
+  bottom: 5px;
+  border-radius: 50%;
+  border: 3px solid transparent;
+  border-top-color: #ba55d3;
+  -webkit-animation: spin 3s linear infinite;
+  animation: spin 3s linear infinite;
+}
+#loader:after {
+  content: "";
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  right: 15px;
+  bottom: 15px;
+  border-radius: 50%;
+  border: 3px solid transparent;
+  border-top-color: #ff00ff;
+  -webkit-animation: spin 1.5s linear infinite;
+  animation: spin 1.5s linear infinite;
+}
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
 </style>
