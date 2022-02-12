@@ -68,7 +68,7 @@ export default {
     var aspect = canvas.parentElement.offsetWidth / height;
 
     this.scene = new THREE.Scene();
-    this.scene.background = new THREE.Color(0xe0e7f1);
+    this.scene.background = new THREE.Color(0x3E3E3E);
 
     // const size = 1;
     // const divisions = 10;
@@ -115,17 +115,8 @@ export default {
     const light = new THREE.AmbientLight(0x404040, 2); // soft white light
     this.scene.add(light);
 
-    // loader
 
-    const loadingManager = new THREE.LoadingManager(() => {
-      const loadingScreen = document.getElementById("loading-screen");
-      loadingScreen.classList.add("fade-out");
-
-      // optional: remove loader from DOM via event listener
-      loadingScreen.addEventListener("transitionend", this.onTransitionEnd);
-    });
-
-    const loader = new GLTFLoader(loadingManager);
+    const loader = new GLTFLoader();
     const url = this.model.path;
     const pos = new THREE.Vector3(
       this.model.xOffset,
