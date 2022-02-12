@@ -5,7 +5,7 @@
       opacity-0
       flex flex-row
       items-center
-      pl-8
+      pl-6
       md:pl-12
       mt-16
       h-14

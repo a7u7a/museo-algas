@@ -1,5 +1,5 @@
 <template>
-  <div class="">
+  <div>
     <div
       class="
         flex flex-row
@@ -23,7 +23,6 @@
 </template>
 
 <script>
-import algas from "../utils/algas";
 export default {
   props: ["tipo"],
   data: function () {

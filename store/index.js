@@ -5,6 +5,9 @@ export const getters = {
     /** Returns a single alga, instead of a list */
     getAlgaByPath: (state) => (path) => {
         return state.algas.filter(alga => { return alga.path == path })[0]
+    },
+    getAll: (state) => () => {
+        return state.algas
     }
 }
 
@@ -24,7 +27,7 @@ export const state = () => ({
                             date: "10 de Noviembre 1999",
                             img: "/herbos/carola/1.png",
                             description:
-                            "<strong>Fecha de recolección:</strong><p>10 de Noviembre 1999</p> <img src=/herbos/carola/1.png/>",
+                                "<strong>Fecha de recolección:</strong><p>10 de Noviembre 1999</p> <img src=/herbos/carola/1.png/>",
                         },
                         geometry: {
                             type: "Point",
