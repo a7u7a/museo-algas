@@ -1,12 +1,6 @@
 <template>
   <div class="font-serif">
-    <!-- <div class="mt-8 text-lg">Representación volumétrica</div> -->
     <div>
-      <div
-        class="absolute flex flex-row w-1/4 h-1/4 items-center justify-center"
-      >
-        <!-- <p class="text-xl">hello</p> -->
-      </div>
       <canvas id="webgl" class="mt-4 w-full h-full"> </canvas>
     </div>
   </div>
@@ -25,53 +19,37 @@ export default {
       renderer: null,
       scene: null,
       camera: null,
-      controls: null
+      controls: null,
+      loading: "Cargando modelo..",
     };
   },
   methods: {
     animate() {
       requestAnimationFrame(this.animate);
-
-      this.object.rotation.y += 0.01;
-
+      this.object.rotation.y += 0.005;
       this.renderer.render(this.scene, this.camera);
     },
     fitCameraToObject() {
+      // stolen from https://discourse.threejs.org/t/camera-zoom-to-fit-object/936
       const boundingBox = new THREE.Box3();
-
-      // get bounding box of object - this will be used to setup controls and camera
       boundingBox.setFromObject(this.object);
-
       const center = new THREE.Vector3();
       boundingBox.getCenter(center);
-
       const size = new THREE.Vector3();
       boundingBox.getSize(size);
-
-      // get the max side of the bounding box (fits to width OR height as needed )
-      const maxDim = Math.max(size.x, size.y, size.z);
+      const maxDim = Math.max(size.x, size.y, size.z); // get the max side of the bounding box (fits to width OR height as needed )
       const fov = this.camera.fov * (Math.PI / 180);
       let cameraZ = Math.abs((maxDim / 4) * Math.tan(fov * 2));
-
-      // cameraZ *= offset; // zoom out a little so that objects don't fill the screen
-
-      //camera.position.z = cameraZ;
-
+      const offset = 2;
+      cameraZ *= offset; // zoom out a little
+      this.camera.position.z = cameraZ;
       const minZ = boundingBox.min.z;
       const cameraToFarEdge = minZ < 0 ? -minZ + cameraZ : cameraZ - minZ;
-      // camera.far = cameraToFarEdge * 3;
-
-      if (this.controls) {
-        // set camera to rotate around center of loaded object
-        this.controls.target = center;
-
-        // prevent camera from zooming out far enough to create far plane cutoff
-        this.controls.maxDistance = cameraToFarEdge * 6;
-
-        // this.controls.saveState();
-      } else {
-        this.camera.lookAt(center);
-      }
+      this.camera.lookAt(center);
+      this.controls.target = center;
+      this.controls.maxDistance = cameraToFarEdge * 2;
+      this.controls.minDistance = 1;
+      this.controls.saveState();
     },
   },
   mounted: function () {
@@ -88,9 +66,8 @@ export default {
     // const gridHelper = new THREE.GridHelper(size, divisions);
     // this.scene.add(gridHelper);
     var aspect = canvas.parentElement.offsetWidth / height;
-    this.camera = new THREE.PerspectiveCamera(35, aspect, 1, 200);
-    this.camera.position.set(10, 1, 0);
-    this.camera.lookAt(0, 0, 0);
+    this.camera = new THREE.PerspectiveCamera(30, aspect, 0.1, 20);
+    this.camera.position.set(4, 3, 0);
     this.scene.add(this.camera);
 
     this.renderer = new THREE.WebGLRenderer({
@@ -108,9 +85,12 @@ export default {
     this.controls.screenSpacePanning = true;
     this.controls.addEventListener("change", () => {
       this.renderer.render(this.scene, this.camera);
+      this.paused = true;
     });
 
     new ResizeObserver(() => {
+      this.camera.aspect = canvas.parentElement.offsetWidth / height
+      this.camera.updateProjectionMatrix();
       this.renderer.setSize(canvas.parentElement.offsetWidth, height);
       this.renderer.render(this.scene, this.camera);
     }).observe(canvas.parentElement);
@@ -142,12 +122,16 @@ export default {
         this.scene.add(this.object);
         this.fitCameraToObject();
         this.animate();
+        this.loading = "Listo";
       },
       (xhr) => {
-        console.log((xhr.loaded / xhr.total) * 100 + "% loaded");
+        this.loading = "Cargando:" + (xhr.loaded / xhr.total) * 100 + "%";
+        if (xhr.total >= 99) {
+          this.loading = "Preparando";
+        }
       },
       (error) => {
-        console.log("Couldnt load model");
+        this.loading = "Error al cargar modelo";
       }
     );
   },

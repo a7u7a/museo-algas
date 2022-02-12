@@ -24,10 +24,10 @@
             :abreviatura="alga.ficha.abreviatura"
           />
 
-          <three :model="alga.model" id="1" />
+          <three :model="alga.model"/>
 
           <!-- contenido alga -->
-          <div class="text-lg font-bold mt-8 mb-4" id="1">Características</div>
+          <div class="text-lg font-bold pt-16 mb-4" id="1">Características</div>
 
           <classTable  :tabla="alga.ficha.tabla" />
 

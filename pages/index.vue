@@ -3,7 +3,7 @@
     <div class="pt-16"><banner /></div>
     <about />
     <div class="flex flex-col overflow-x-hidden mds:items-center mb-16">
-      <div class="m-12">
+      <div class="m-12 mt-24">
         <p class="font-serif font-bold text-2xl">Algas</p>
       </div>
       <div class="flex flex-col space-y-6 mds:items-center">
