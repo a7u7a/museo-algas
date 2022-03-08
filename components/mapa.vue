@@ -26,7 +26,6 @@ document.addEventListener('keydown', (event)=>{
 		this.$refs.foo.hide();
 	}
 });
-
     this.createMap();
     this.mapBounds();
   },
