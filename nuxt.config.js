@@ -5,6 +5,10 @@ export default {
   server: {
     host: "0.0.0.0"
   },
+  publicRuntimeConfig: {
+    mapboxStyle: process.env.MAPBOX_STYLE,
+    mapboxToken: process.env.MAPBOX_TOKEN
+  },
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: 'museo-algas',

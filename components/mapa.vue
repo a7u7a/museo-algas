@@ -15,10 +15,9 @@ export default {
   props: ["herbos"],
   data() {
     return {
-      access_token:
-        "pk.eyJ1Ijoic2FtcGFvbGl0byIsImEiOiJja3c1Z2g1anowZ3Y1MnRwOGtieWRkdjNkIn0.wkW06MEvxRmyL3jfZYBTWA",
+      access_token: this.$config.mapboxToken,
+      mapStyle: this.$config.mapboxStyle,
       map: null,
-      mapStyle: "mapbox://styles/sampaolito/ckzfxr506000s14mmgvpszi0z",
     };
   },
   mounted() {
