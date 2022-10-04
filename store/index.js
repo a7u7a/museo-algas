@@ -25,22 +25,9 @@ export const state = () => ({
                         type: "Feature",
                         properties: {
                             date: "10 de Noviembre 1999",
-                            img: "/herbos/carola/1.png",
+                            img: "/herbos/H-Callophyllis-variegata-5.jpg",
                             description:
-                                "<strong>Fecha de recolección:</strong><p>10 de Noviembre 1999</p> <img src=/herbos/carola/1.png/>",
-                        },
-                        geometry: {
-                            type: "Point",
-                            coordinates: [-71.882645, -33.963561],
-                        },
-                    },
-                    {
-                        type: "Feature",
-                        properties: {
-                            date: "10 de Noviembre 1999",
-                            img: "/herbos/carola/2.png",
-                            description:
-                                "<strong>Fecha de recolección:</strong><p>10 de Noviembre 1999</p> <img src=/herbos/carola/1.png/>",
+                                "<strong>Fecha de recolección:</strong><p>10 de Noviembre 1999</p> <img src=/herbos/H-Callophyllis-variegata-5.jpg>",
                         },
                         geometry: {
                             type: "Point",
@@ -123,6 +110,24 @@ export const state = () => ({
         },
         {
             id: 2,
+            herbos: {
+                type: "FeatureCollection",
+                features: [
+                    {
+                        type: "Feature",
+                        properties: {
+                            date: "10 de Noviembre 1999",
+                            img: "/herbos/H-Chondracanthus-chamissoi-6.jpg",
+                            description:
+                                "<strong>Fecha de recolección:</strong><p>10 de Noviembre 1999</p> <img src=/herbos/H-Chondracanthus-chamissoi-6.jpg>",
+                        },
+                        geometry: {
+                            type: "Point",
+                            coordinates: [-71.88389, -33.965875],
+                        },
+                    },
+                ],
+            },
             model: {
                 path: "/models/chicorea/chicorea.glb",
                 scale: 1,
@@ -197,6 +202,24 @@ export const state = () => ({
         },
         {
             id: 3,
+            herbos: {
+                type: "FeatureCollection",
+                features: [
+                    {
+                        type: "Feature",
+                        properties: {
+                            date: "10 de Noviembre 1999",
+                            img: "/herbos/H-Pyropia-spp-7.jpg",
+                            description:
+                                "<strong>Fecha de recolección:</strong><p>10 de Noviembre 1999</p> <img src=/herbos/H-Pyropia-spp-7.jpg>",
+                        },
+                        geometry: {
+                            type: "Point",
+                            coordinates: [-71.88389, -33.965875],
+                        },
+                    },
+                ],
+            },
             model: {
                 path: "/models/luche/luche.glb",
                 scale: 1,
@@ -271,6 +294,24 @@ export const state = () => ({
         },
         {
             id: 4,
+            herbos: {
+                type: "FeatureCollection",
+                features: [
+                    {
+                        type: "Feature",
+                        properties: {
+                            date: "10 de Noviembre 1999",
+                            img: "/herbos/H-Sarcothalia-crispata-8.jpg",
+                            description:
+                                "<strong>Fecha de recolección:</strong><p>10 de Noviembre 1999</p> <img src=/herbos/H-Sarcothalia-crispata-8.jpg>",
+                        },
+                        geometry: {
+                            type: "Point",
+                            coordinates: [-71.88389, -33.965875],
+                        },
+                    },
+                ],
+            },
             model: {
                 path: "/models/luga-negra/luga-negra.glb",
                 scale: 1,
@@ -349,6 +390,24 @@ export const state = () => ({
         },
         {
             id: 5,
+            herbos: {
+                type: "FeatureCollection",
+                features: [
+                    {
+                        type: "Feature",
+                        properties: {
+                            date: "10 de Noviembre 1999",
+                            img: "/herbos/H-Gracilaria-Pelillo-9.jpg",
+                            description:
+                                "<strong>Fecha de recolección:</strong><p>10 de Noviembre 1999</p> <img src=/herbos/H-Gracilaria-Pelillo-9.jpg>",
+                        },
+                        geometry: {
+                            type: "Point",
+                            coordinates: [-71.88389, -33.965875],
+                        },
+                    },
+                ],
+            },
             model: {
                 path: "/models/pelillo/pelillo.glb",
                 scale: 1,
@@ -423,6 +482,24 @@ export const state = () => ({
         },
         {
             id: 6,
+            herbos: {
+                type: "FeatureCollection",
+                features: [
+                    {
+                        type: "Feature",
+                        properties: {
+                            date: "10 de Noviembre 1999",
+                            img: "/herbos/H-Ulva-spp-10.jpg",
+                            description:
+                                "<strong>Fecha de recolección:</strong><p>10 de Noviembre 1999</p> <img src=/herbos/H-Ulva-spp-10.jpg>",
+                        },
+                        geometry: {
+                            type: "Point",
+                            coordinates: [-71.88389, -33.965875],
+                        },
+                    },
+                ],
+            },
             model: {
                 path: "/models/ulva/ulva.glb",
                 scale: 1,
@@ -497,6 +574,24 @@ export const state = () => ({
         },
         {
             id: 7,
+            herbos: {
+                type: "FeatureCollection",
+                features: [
+                    {
+                        type: "Feature",
+                        properties: {
+                            date: "10 de Noviembre 1999",
+                            img: "/herbos/H-Lessonia-1.jpg",
+                            description:
+                                "<strong>Fecha de recolección:</strong><p>10 de Noviembre 1999</p> <img src=/herbos/H-Lessonia-1.jpg>",
+                        },
+                        geometry: {
+                            type: "Point",
+                            coordinates: [-71.88389, -33.965875],
+                        },
+                    },
+                ],
+            },
             model: {
                 path: "/models/huiro-negro/huiro-negro.glb",
                 scale: 0.08,
@@ -579,6 +674,24 @@ export const state = () => ({
         },
         {
             id: 8,
+            herbos: {
+                type: "FeatureCollection",
+                features: [
+                    {
+                        type: "Feature",
+                        properties: {
+                            date: "10 de Noviembre 1999",
+                            img: "/herbos/H-Macrocystis-2.jpg",
+                            description:
+                                "<strong>Fecha de recolección:</strong><p>10 de Noviembre 1999</p> <img src=/herbos/H-Macrocystis-2.jpg>",
+                        },
+                        geometry: {
+                            type: "Point",
+                            coordinates: [-71.88389, -33.965875],
+                        },
+                    },
+                ],
+            },
             model: {
                 path: "/models/huiro-flotador/huiro-flotador.glb",
                 scale: 0.5,
@@ -653,6 +766,24 @@ export const state = () => ({
         },
         {
             id: 9,
+            herbos: {
+                type: "FeatureCollection",
+                features: [
+                    {
+                        type: "Feature",
+                        properties: {
+                            date: "10 de Noviembre 1999",
+                            img: "/herbos/H-Durvillaea-incurvata-3.jpg",
+                            description:
+                                "<strong>Fecha de recolección:</strong><p>10 de Noviembre 1999</p> <img src=/herbos/H-Durvillaea-incurvata-3.jpg>",
+                        },
+                        geometry: {
+                            type: "Point",
+                            coordinates: [-71.88389, -33.965875],
+                        },
+                    },
+                ],
+            },
             model: {
                 path: "/models/cochayuyo/cochayuyo.glb",
                 scale: 1,
@@ -727,6 +858,24 @@ export const state = () => ({
         },
         {
             id: 10,
+            herbos: {
+                type: "FeatureCollection",
+                features: [
+                    {
+                        type: "Feature",
+                        properties: {
+                            date: "10 de Noviembre 1999",
+                            img: "/herbos/carola/2.png",
+                            description:
+                                "<strong>Fecha de recolección:</strong><p>10 de Noviembre 1999</p> <img src=/herbos/H-Lessonia-trabeculata-4.jpg>",
+                        },
+                        geometry: {
+                            type: "Point",
+                            coordinates: [-71.88389, -33.965875],
+                        },
+                    },
+                ],
+            },
             model: {
                 path: "/models/huiro-palo/huiro-palo.glb",
                 scale: 1,
