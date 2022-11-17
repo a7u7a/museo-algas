@@ -1,5 +1,5 @@
 <template>
-  <div class="font-serif">
+  <div class="font-sans">
     <div class="text-xl mt-4">
       <a class="italic">{{ especie }}</a>
       <a>{{ abreviatura }}</a>

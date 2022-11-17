@@ -68,7 +68,7 @@ export default {
     var aspect = canvas.parentElement.offsetWidth / height;
 
     this.scene = new THREE.Scene();
-    this.scene.background = new THREE.Color(0x3E3E3E);
+    this.scene.background = new THREE.Color(0xFFFFFF)
 
     // const size = 1;
     // const divisions = 10;

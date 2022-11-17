@@ -12,7 +12,7 @@
       bg-mdla-bg
       w-full
       border-b border-gray-400
-      font-serif
+      font-sans
     "
     :class="{ 'opacity-100 md:opacity-0': showSideHeader }"
   >

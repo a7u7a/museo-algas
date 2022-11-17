@@ -10,7 +10,7 @@
       bg-mdla-bg
       w-full
       border-b border-gray-400
-      font-serif
+      font-sans
     "
   >
     <div class="text-md mt-4">

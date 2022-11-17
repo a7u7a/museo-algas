@@ -11,18 +11,18 @@
       items-center
       justify-between
       border-b border-gray-400
-      font-serif
+      font-sans
       bg-mdla-bg
     "
   >
     <NuxtLink class="text-lg font-bold" to="/">Museo de las Algas</NuxtLink>
     <div class="pr-6 md:pr-12">
-      <button
+      <!-- <button
         class="font-sans bg-gray-200 rounded pr-2 pl-2 hover:bg-gray-300"
         v-on:click="showCatalog"
       >
         Catálogo
-      </button>
+      </button> -->
     </div>
   </div>
 </template>

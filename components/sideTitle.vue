@@ -1,5 +1,5 @@
 <template>
-  <div class="fixed hidden flex-col pl-6 items-end pr-6 w-1/5 md:flex font-serif">
+  <div class="fixed hidden flex-col pl-6 items-end pr-6 w-1/5 md:flex font-sans">
     <div class="opacity-0" :class="{ 'opacity-100': showSideHeader }">
       <div class="text-lg text-right">
         <a class="italic">{{ especie }}</a>

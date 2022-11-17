@@ -4,18 +4,18 @@
     <about />
     <div class="flex flex-col overflow-x-hidden mds:items-center mb-16">
       <div class="m-12 mt-24">
-        <p class="font-serif font-bold text-2xl">Algas</p>
+        <p class="font-sans font-bold text-2xl">Algas</p>
       </div>
       <div class="flex flex-col space-y-6 mds:items-center">
-        <p class="ml-12 font-serif font-bold text-lg mds:ml-0">Algas Pardas</p>
+        <p class="ml-12 font-sans font-bold text-lg mds:ml-0">Algas Pardas</p>
 
         <carousel tipo="parda" />
 
-        <p class="ml-12 font-serif font-bold text-lg mds:ml-0">Algas Rojas</p>
+        <p class="ml-12 font-sans font-bold text-lg mds:ml-0">Algas Rojas</p>
 
         <carousel tipo="roja" />
 
-        <p class="ml-12 font-serif font-bold text-lg mds:ml-0">Algas Verdes</p>
+        <p class="ml-12 font-sans font-bold text-lg mds:ml-0">Algas Verdes</p>
 
         <carousel tipo="verde" />
       </div>

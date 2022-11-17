@@ -16,7 +16,7 @@
 
     <div class="flex flex-row justify-center pt-24">
       <!-- main content -->
-      <div class="flex flex-col w-screen sm:w-3/5 md:max-w-4xl font-serif">
+      <div class="flex flex-col w-screen sm:w-3/5 md:max-w-4xl font-sans">
         <div class="pl-6 md:pl-0 pr-6">
           <!-- main title -->
           <mainTitle

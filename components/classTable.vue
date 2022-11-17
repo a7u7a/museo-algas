@@ -1,5 +1,5 @@
 <template>
-  <div class="lg:m-6 pl-6 pr-6 pt-6 pb-6 border mb-4 lg:mb-0 lg:float-right text-base font-serif">
+  <div class="lg:m-6 pl-6 pr-6 pt-6 pb-6 border mb-4 lg:mb-0 lg:float-right text-base font-sans">
     <div class="mb-4 text-md">
       {{ tabla.titulo }}
     </div>

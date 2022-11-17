@@ -9,7 +9,7 @@
       </div>
       <div class="text-center">
         <p class="mt-6">
-          <a class="font-serif font-bold italic">{{ especie }}</a>
+          <a class="font-sans font-bold italic">{{ especie }}</a>
           <a >{{ abreviatura }}</a>
         </p>
         <p class="mt-2 font-sans">
