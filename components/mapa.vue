@@ -12,7 +12,7 @@ import mapboxgl from "mapbox-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
 
 export default {
-  props: ["herbos"],
+  props: ["alga"],
   data() {
     return {
       access_token: this.$config.mapboxToken,
@@ -32,12 +32,12 @@ document.addEventListener('keydown', (event)=>{
   methods: {
     mapBounds() {
       // given two or more points, find bounding box
-      console.log("this.herbos", this.herbos.features);
+      // console.log("this.herbos", this.herbos.features);
       var lonArr = [];
       var latArr = [];
       const m = 0.01; // margin
-      for (let i = 0; i < this.herbos.features.length; i++) {
-        const element = this.herbos.features[i].geometry.coordinates;
+      for (let i = 0; i < this.alga.herbos.features.length; i++) {
+        const element = this.alga.herbos.features[i].geometry.coordinates;
         if (element) {
           lonArr.push(element[0]);
           latArr.push(element[1]);
@@ -61,7 +61,7 @@ document.addEventListener('keydown', (event)=>{
       this.map.on("load", () => {
         this.map.addSource("places", {
           type: "geojson",
-          data: this.herbos,
+          data: this.alga.herbos,
         });
 
         this.map.addLayer({
@@ -102,7 +102,7 @@ document.addEventListener('keydown', (event)=>{
           const coordinates = e.features[0].geometry.coordinates.slice();
           const date = e.features[0].properties.date;
           const img = e.features[0].properties.img;
-          const description = `<strong>Fecha de recolección:</strong><p>${date}</p> <img src="${img}" style="height:15vh;"/>`;
+          const description = `<strong>Fecha de recolección:</strong><p>${date}</p>  <img src="${img}" style="height:25vh;"/>`;
 
           while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
             coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;

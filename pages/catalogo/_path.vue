@@ -41,7 +41,7 @@
               <a>{{ info.data }}</a>
             </div>
           </div>
-          <mapa id="2" :herbos="alga.herbos" />
+          <mapa id="2" :alga="alga" />
         </div>
       </div>
     </div>
@@ -68,7 +68,7 @@ export default {
       }
     }
     this.nombres = nombres;
-    console.log("nombres", nombres);
+    // console.log("nombres", nombres);
   },
   methods: {
     scrollSensor: function () {

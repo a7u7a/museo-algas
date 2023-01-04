@@ -4,16 +4,28 @@
       <p class="font-sans font-bold text-2xl">Bienvenidos</p>
     </div>
     <div class="w-screen md:w-1/2">
-    <div class="pl-8 md:pl-0 pr-8">
-      <p class="font-sans text-center">
-        Morbi consectetur auctor orci, at ullamcorper dui pretium ac. Mauris
-        ligula velit, feugiat vel lorem eu, pulvinar posuere massa. Quisque eu
-        egestas mauris. Aliquam imperdiet sapien massa, sit amet sollicitudin
-        sem vestibulum non. Duis eu sem varius lectus tincidunt imperdiet. Etiam
-        efficitur dignissim ligula, vitae fringilla dui dignissim eget. Duis
-        rhoncus, lectus vel gravida faucibus, tellus nisl pharetra nisl, sit
-        amet lobortis arcu ante et urna.
-      </p>
+      <div class="pl-8 md:pl-0 pr-8">
+        <p class="font-sans text-center">
+          Este proyecto nace de la necesidad de educar y concientizar sobre el
+          valor ecológico y cultural de las algas las regiones de;  Los
+          Lagos, Los Ríos, La Araucania, Maule, O`Higgins, Valparaiso
+          y Coquimbo. Este museo digital, Museo de las Algas, se concibe como un
+          espacio de aprendizaje, conservación y contemplación de una selección
+          de Algas endémicas de las costas de Chile. Proporciona herramientas
+          para que podamos desarrollar un entendimiento más integral del mundo
+          de la filología, desde un punto de vista científico, social, y
+          cultural.
+          <br>
+          <br>
+          Este proyecto es posible gracias al financiamiento de la
+          Fundación Mar Adentro mediante su Fondo FMA, y gracias a un equipo que
+          soñó y se fascinó con el mundo de las algas.Éste pretende ser solo el
+          comienzo de un sinfín de formas de interacción y coexistencia con el
+          mundo fascinante que nos entrega las Algas.
+          <br>
+          <br>
+          Agradecimientos: Fundación Mar Adentro, Javiera Gutiérrez, Maya Errázuriz , Cristián Bulboa, Paula Alvear, Valentina Montoya
+        </p>
       </div>
     </div>
   </div>

@@ -31,7 +31,7 @@
 export default {
   methods: {
     showCatalog: function (event) {
-      console.log("catalog", this.$store.getters.getAlgaByPath("carola"));
+      // console.log("catalog", this.$store.getters.getAlgaByPath("carola"));
     },
   },
 };

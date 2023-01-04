@@ -49,7 +49,7 @@ export default {
   },
   mounted: function () {
     this.algas = this.$store.getters.getAll();
-    console.log("algas", this.algas)
+    // console.log("algas", this.algas)
   },
 };
 </script>

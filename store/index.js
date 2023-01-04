@@ -30,12 +30,14 @@ export const state = () => ({
             properties: {
               date: "10 de Noviembre 1999",
               img: "/herbos/H-Callophyllis-variegata-5.jpg",
+              ubicacion:"Cardonal, Región del Maule, Chile",
               description:
                 "<strong>Fecha de recolección:</strong><p>10 de Noviembre 1999</p> <img src=/herbos/H-Callophyllis-variegata-5.jpg>",
             },
             geometry: {
               type: "Point",
               coordinates: [-72.674881, -35.876481],
+              
             },
           },
         ],
@@ -122,12 +124,14 @@ export const state = () => ({
             properties: {
               date: "10 de Noviembre 1999",
               img: "/herbos/H-Chondracanthus-chamissoi-6.jpg",
+              ubicacion:"Puerto Oscuro, Coquimbo, Chile",
               description:
                 "<strong>Fecha de recolección:</strong><p>10 de Noviembre 1999</p> <img src=/herbos/H-Chondracanthus-chamissoi-6.jpg>",
             },
             geometry: {
               type: "Point",
               coordinates: [-71.604133, -31.422975],
+              
             },
           },
         ],
@@ -214,12 +218,14 @@ export const state = () => ({
             properties: {
               date: "10 de Noviembre 1999",
               img: "/herbos/H-Pyropia-spp-7.jpg",
+              ubicacion:"Topocalma, Región de OHiggins, Chile",
               description:
                 "<strong>Fecha de recolección:</strong><p>10 de Noviembre 1999</p> <img src=/herbos/H-Pyropia-spp-7.jpg>",
             },
             geometry: {
               type: "Point",
               coordinates: [-71.981997, -34.112027],
+              
             },
           },
         ],
@@ -306,12 +312,14 @@ export const state = () => ({
             properties: {
               date: "10 de Noviembre 1999",
               img: "/herbos/H-Sarcothalia-crispata-8.jpg",
+              ubicacion:"Topocalma, Región de OHiggins, Chile",
               description:
                 "<strong>Fecha de recolección:</strong><p>10 de Noviembre 1999</p> <img src=/herbos/H-Sarcothalia-crispata-8.jpg>",
             },
             geometry: {
               type: "Point",
               coordinates: [-71.981997, -34.112027],
+              
             },
           },
         ],
@@ -402,12 +410,14 @@ export const state = () => ({
             properties: {
               date: "10 de Noviembre 1999",
               img: "/herbos/H-Gracilaria-Pelillo-9.jpg",
+              ubicacion:"Puerto Montt, Región de los Lagos, Chile",
               description:
                 "<strong>Fecha de recolección:</strong><p>10 de Noviembre 1999</p> <img src=/herbos/H-Gracilaria-Pelillo-9.jpg>",
             },
             geometry: {
               type: "Point",
               coordinates: [-72.96467, -41.499636],
+              
             },
           },
         ],
@@ -494,12 +504,14 @@ export const state = () => ({
             properties: {
               date: "10 de Noviembre 1999",
               img: "/herbos/H-Ulva-spp-10.jpg",
+              ubicacion:"Estaquilla, Región de Los Lagos, Chile",
               description:
                 "<strong>Fecha de recolección:</strong><p>10 de Noviembre 1999</p> <img src=/herbos/H-Ulva-spp-10.jpg>",
             },
             geometry: {
               type: "Point",
               coordinates: [-73.836542, -41.383709],
+              
             },
           },
         ],
@@ -586,12 +598,14 @@ export const state = () => ({
             properties: {
               date: "10 de Noviembre 1999",
               img: "/herbos/H-Lessonia-1.jpg",
+              ubicacion: "Los Molles, Región de Valparaíso, Chile",
               description:
                 "<strong>Fecha de recolección:</strong><p>10 de Noviembre 1999</p> <img src=/herbos/H-Lessonia-1.jpg>",
             },
             geometry: {
               type: "Point",
               coordinates: [-71.498975, -32.241293],
+              
             },
           },
         ],
@@ -686,12 +700,14 @@ export const state = () => ({
             properties: {
               date: "10 de Noviembre 1999",
               img: "/herbos/H-Macrocystis-2.jpg",
+              ubicacion: "Cheuque, Región de la Araucanía, Chile",
               description:
                 "<strong>Fecha de recolección:</strong><p>10 de Noviembre 1999</p> <img src=/herbos/H-Macrocystis-2.jpg>",
             },
             geometry: {
               type: "Point",
               coordinates: [-73.217502, -39.432699],
+              
             },
           },
         ],
@@ -778,12 +794,14 @@ export const state = () => ({
             properties: {
               date: "10 de Noviembre 1999",
               img: "/herbos/H-Durvillaea-incurvata-3.jpg",
+              ubicacion:"Topocalma, Región de OHiggins, Chile",
               description:
                 "<strong>Fecha de recolección:</strong><p>10 de Noviembre 1999</p> <img src=/herbos/H-Durvillaea-incurvata-3.jpg>",
             },
             geometry: {
               type: "Point",
               coordinates: [-71.981997, -34.112027],
+              
             },
           },
         ],
@@ -870,12 +888,14 @@ export const state = () => ({
             properties: {
               date: "10 de Noviembre 1999",
               img: "/herbos/H-Lessonia-trabeculata-4.jpg",
+              ubicacion:"Mehuín, Región de Los Ríos",
               description:
                 "<strong>Fecha de recolección:</strong><p>10 de Noviembre 1999</p> <img src=/herbos/H-Lessonia-trabeculata-4.jpg>",
             },
             geometry: {
               type: "Point",
               coordinates: [-73.217514, -39.425886],
+              
             },
           },
         ],
