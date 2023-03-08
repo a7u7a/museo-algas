@@ -9,7 +9,7 @@
           Este proyecto nace de la necesidad de educar y concientizar sobre el
           valor ecológico y cultural de las algas las regiones de Los
           Lagos, Los Ríos, La Araucania, Maule, O`Higgins, Valparaiso
-          y Coquimbo. Este museo digital, Museo de las Algas, se concibe como un
+          y Coquimbo. Este archivo digital, Archivo de las Algas, se concibe como un
           espacio de aprendizaje, conservación y contemplación de una selección
           de Algas endémicas de las costas de Chile. Proporciona herramientas
           para que podamos desarrollar un entendimiento más integral del mundo

@@ -15,7 +15,7 @@
       bg-mdla-bg
     "
   >
-    <NuxtLink class="text-lg font-bold" to="/">Museo de las Algas</NuxtLink>
+    <NuxtLink class="text-lg font-bold" to="/">Archivo de las Algas</NuxtLink>
     <div class="pr-6 md:pr-12">
       <!-- <button
         class="font-sans bg-gray-200 rounded pr-2 pl-2 hover:bg-gray-300"
