@@ -13,7 +13,7 @@
           espacio de aprendizaje, conservación y contemplación de una selección
           de Algas endémicas de las costas de Chile. Proporciona herramientas
           para que podamos desarrollar un entendimiento más integral del mundo
-          de la filología, desde un punto de vista científico, social, y
+          de la ficología, desde un punto de vista científico, social, y
           cultural.
           <br>
           <br>

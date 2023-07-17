@@ -1,7 +1,7 @@
 <template>
   <footer class="text-base flex flex-col w-full items-center justify-center h-20 bg-mdla-bg font-sans border-t border-gray-400">
     <p>Archivo de las Algas 2022</p>
-    <a class="underline" href="https://www.instagram.com/museodelasalgas/">Instagram</a>
+    <a class="underline" href="https://www.instagram.com/archivodelasalgas/">Instagram</a>
   </footer>
 </template>
 

@@ -433,7 +433,7 @@ export const state = () => ({
       path: "pelillo",
       ficha: {
         nombres: ["Pelillo"],
-        especie: "Agarophyton chilensis",
+        especie: "Gracilaria chilensis",
         type: "roja",
         abreviatura: "",
         titulo: "Carácterísticas",
