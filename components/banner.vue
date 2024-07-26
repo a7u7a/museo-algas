@@ -4,7 +4,7 @@
     style="background-image: url('/imgs/fondo_hero.png')"
   >
     <div class="flex h-full w-full flex-row items-center justify-center">
-      <p class="text-white font-sans font-bold text-2xl">Archivo de las Algas</p>
+      <img class="h-16" src="/imgs/logo_adla.png" alt="">
     </div>
   </div>
 </template>
